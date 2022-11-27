@@ -1,6 +1,6 @@
 #include <Windows.h>
 
-int main(){
+int CALLBACK main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow){
     return 0;
 
     WNDCLASSEX wc = {0};
