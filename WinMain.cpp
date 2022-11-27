@@ -1,4 +1,7 @@
+#include <tchar.h>
 #include <Windows.h>
+
+const auto pClassName = _T("3D ENGINE");
 
 int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow){
     WNDCLASSEX wc = {0};
@@ -13,9 +16,12 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
     wc.hCursor = nullptr;
     wc.hbrBackground = nullptr;
     wc.lpszMenuName = nullptr;
-    wc.lpszClassName = L"3D ENGINE";
+    wc.lpszClassName = pClassName;
     wc.hIconSm = nullptr;
     RegisterClassEx(&wc);
 
+    HWND hWnd = CreateWindowEx(0, pClassName, pClassName, WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU, 200, 200, 640, 480, nullptr, nullptr, hInstance, nullptr);
+
+    while (true);
     return 0;
 }
