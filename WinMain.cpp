@@ -1,9 +1,8 @@
 #include <Windows.h>
 
-int CALLBACK main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow){
-    return 0;
-
+int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow){
     WNDCLASSEX wc = {0};
+
     wc.cbSize = sizeof(wc);
     wc.style = CS_OWNDC;
     wc.lpfnWndProc = DefWindowProc;
@@ -11,5 +10,12 @@ int CALLBACK main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine,
     wc.cbWndExtra = 0;
     wc.hInstance = hInstance;
     wc.hIcon = nullptr;
-    RegisterClassA();
+    wc.hCursor = nullptr;
+    wc.hbrBackground = nullptr;
+    wc.lpszMenuName = nullptr;
+    wc.lpszClassName = L"3D ENGINE";
+    wc.hIconSm = nullptr;
+    RegisterClassEx(&wc);
+
+    return 0;
 }
