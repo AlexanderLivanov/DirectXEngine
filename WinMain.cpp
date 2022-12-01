@@ -1,6 +1,7 @@
 #include <tchar.h>
 #include <Windows.h>
 #include <iostream>
+#include "WindowsMessageMap.h"
 
 using namespace std;
 
@@ -13,6 +14,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam){
         PostQuitMessage(69);
         cout << ":: exit program";
         break;
+    case WM_KEYDOWN:
+        if(wParam == 'F'){
+            SetWindowText(hWnd, _T("text"));
+        }
     }
     return DefWindowProc(hWnd, msg, wParam, lParam);
 }
