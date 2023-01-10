@@ -2,6 +2,8 @@
 #include <Windows.h>
 #include <iostream>
 #include "WindowsMessageMap.h"
+#include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -18,6 +20,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam){
         if(wParam == 'F'){
             SetWindowText(hWnd, _T("text"));
         }
+        break;
+    case WM_LBUTTONDOWN:
+        const POINTS pt = MAKEPOINTS(lParam);
+        std::ostringstream oss;
+        oss << "(" << pt.x << "," << pt.y << ")";
+        //you shouldn`t uncomment the line bellow. it`s cause errors
+        //SetWindowText(hWnd, oss.str().c_str()); 
     }
     return DefWindowProc(hWnd, msg, wParam, lParam);
 }
